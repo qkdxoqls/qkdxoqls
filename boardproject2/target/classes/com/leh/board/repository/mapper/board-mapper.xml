@@ -4,12 +4,12 @@
  
 <mapper namespace="board">
 	<insert id="insert" parameterType="board">
-		insert into board (b_title,b_contents,b_hits,b_date,b_filename)
-			values(#{b_title},#{b_contents},#{b_hits},now(),#{b_filename})
+		insert into board (m_number,b_writer,b_title,b_contents,b_hits,b_date,b_filename)
+			values (#{m_number},#{b_writer},#{b_title},#{b_contents},#{b_hits},now(),#{b_filename})
 	</insert>
-	<select id="findAll" resultType="board">
-		select * from board
-		select FORMAT(b_hits , 0) FROM `board` WHERE #{b_number}
+	<select id="findAll" parameterType="long" resultType="board">
+		select * from board where m_number
+		select FORMAT (b_hits , 0) FROM `board`
 	</select>
 	<select id="findById" parameterType="long" resultType="board">
  		select * from board where b_number=#{b_number}
@@ -33,5 +33,7 @@
  	<delete id="delete" parameterType="long">
  		delete from board where b_number=#{b_number}
  	</delete>
- 	
+ 	<select id="search" parameterType="java.util.HashMap" resultType="board">
+		select * from board where ${type} like concat('%', #{word}, '%')	
+	</select> 
 </mapper>

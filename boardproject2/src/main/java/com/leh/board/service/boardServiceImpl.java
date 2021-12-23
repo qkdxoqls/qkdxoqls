@@ -14,6 +14,7 @@ import com.leh.board.dto.PageDTO;
 import com.leh.board.dto.boardDTO;
 import com.leh.board.repository.BoardRepository;
 
+
 @Service
 public class boardServiceImpl implements boardService{
 	
@@ -63,7 +64,7 @@ public class boardServiceImpl implements boardService{
 	@Override
 	public void update(boardDTO board) {
 		// TODO Auto-generated method stub
-		
+		br.update(board);
 	}
 	
 	private static final int PAGE_LIMIT = 3; // ���������� ������ �� ���� 
@@ -108,6 +109,19 @@ public class boardServiceImpl implements boardService{
 	public void delete(long b_number) {
 		// TODO Auto-generated method stub
 		br.delete(b_number);
+	}
+
+	@Override
+	public List<boardDTO> search(String searchtype, String keyword) {
+		Map<String, String> searchParam = new HashMap<String, String>();
+		searchParam.put("type", searchtype);
+		searchParam.put("word", keyword);
+		List<boardDTO> boardList = br.search(searchParam);
+		for(boardDTO b: boardList) {
+			System.out.println(b.toString());
+		}
+		
+		return boardList;
 	}
 
 	

@@ -12,7 +12,7 @@
 	<form action="/board/update" method="post" name="update_form">
 	<input type="hidden" name="page" value=${page}>
 		글번호: <input type="text" name="b_number" value="${board.b_number}" readonly> <br>
-		제목: <input type="text" name="b_title"> <br>
+		제목: <input type="text" name="b_title" value="${board.b_title}"> <br>
 		내용: <textarea name="b_contents" rows="5">${board.b_contents}</textarea><br>
 		<input type="submit" value="수정">
 	</form>

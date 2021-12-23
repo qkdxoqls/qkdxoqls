@@ -34,6 +34,16 @@
 <body>
 	<a href="/member/mainindex"><button>메인으로</button></a>
 	<a href="insert"><button>글쓰기</button></a>
+	
+	<form action="/board/search" method="get">
+   		<select name="searchtype">
+   			<option value="b_title">제목</option>
+   			<option value="b_writer">작성자</option>
+   		</select>
+   		<input type="text" name="keyword" placeholder="검색어">
+   		<input type="submit" value="검색">
+   	</form>
+	
 	<table id="find">
 		<tr id="toptr">
 			<td id="item">No#</td>

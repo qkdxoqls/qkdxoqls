@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>Home</title>
 	<link href="C:\Users\master\Desktop\다운로드.ico" rel="shortcut icon" type="image/x-icon">
+	<title>Home</title>
 <script type="text/javascript">
 function printClock() {
     
@@ -73,8 +73,8 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
 	Board  
 </h1>
 <div id="btn">
-	<a href="save"><button>회원가입</button></a>
-	<a href="login"><button>로그인</button></a>
+	<a href="member/save"><button>회원가입</button></a>
+	<a href="member/login"><button>로그인</button></a>
 </div><br><br><br><br><br>
 	<body onload="printClock()">
 	<div id="clock" style=" align:center; solid #000000; width:600px; height:250px; line-height:250px; color:#666;font-size:100px; text-align:center;" id="clock">

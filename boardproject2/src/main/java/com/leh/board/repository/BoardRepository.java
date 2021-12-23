@@ -2,6 +2,7 @@ package com.leh.board.repository;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,17 @@ public class BoardRepository {
 	public void delete(long b_number) {
 		// TODO Auto-generated method stub
 		sql.delete("board.delete", b_number);
+	}
+
+	public void update(boardDTO board) {
+		// TODO Auto-generated method stub
+		sql.update("board.update", board);
+	}
+
+	public List<boardDTO> search(Map<String, String> searchParam) {
+		// TODO Auto-generated method stub
+		return sql.selectList("board.search", searchParam);
+
 	}
 
 	

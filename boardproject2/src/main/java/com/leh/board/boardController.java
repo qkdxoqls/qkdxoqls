@@ -16,7 +16,6 @@ import com.leh.board.dto.PageDTO;
 import com.leh.board.dto.boardDTO;
 import com.leh.board.service.boardService;
 
-
 @Controller
 @RequestMapping(value="/board/*")
 public class boardController {
@@ -30,7 +29,7 @@ public class boardController {
 		return "board/insert";
 	}
 	
-	@RequestMapping(value="/insert", method=RequestMethod.POST)
+	@RequestMapping(value="insert", method=RequestMethod.POST)
 	public String insertForm(@ModelAttribute boardDTO board) throws IllegalStateException, IOException {
 		bs.insert(board);
 		System.out.println("2" + board);
@@ -75,6 +74,7 @@ public class boardController {
 	@RequestMapping(value="update", method=RequestMethod.POST)
 	public String update(@ModelAttribute boardDTO board, @RequestParam("b_number") long b_number, Model model, @RequestParam(value="page", required=false, defaultValue="1")int page) {
 		bs.update(board);
+		System.out.println("수정함");
 		return "redirect:/board/detail?b_number="+board.getB_number() + "&page=" + page;
 	}
 	
@@ -84,6 +84,13 @@ public class boardController {
 		List<boardDTO> boardList = bs.pagingList(page);
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("paging", paging);
+		return "board/findAll";
+	}
+	
+	@RequestMapping(value="search" , method=RequestMethod.GET)
+	public String search(@RequestParam("searchtype") String searchtype, @RequestParam("keyword") String keyword, Model model) {
+		List<boardDTO> boardlist = bs.search(searchtype, keyword);
+		model.addAttribute("boardList", boardlist);
 		return "board/findAll";
 	}
 
