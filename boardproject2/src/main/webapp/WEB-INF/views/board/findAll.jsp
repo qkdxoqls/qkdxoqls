@@ -35,14 +35,6 @@
 	<a href="/member/mainindex"><button>메인으로</button></a>
 	<a href="insert"><button>글쓰기</button></a>
 	
-	<form action="/board/search" method="get">
-   		<select name="searchtype">
-   			<option value="b_title">제목</option>
-   			<option value="b_writer">작성자</option>
-   		</select>
-   		<input type="text" name="keyword" placeholder="검색어">
-   		<input type="submit" value="검색">
-   	</form>
 	
 	<table id="find">
 		<tr id="toptr">
@@ -69,7 +61,7 @@
 	<div id="page">
 		<c:choose>
 			<c:when test="${paging.page<=1}">
-				[이전]&nbsp;
+				 [이전] &nbsp;
 			</c:when>
 			<c:otherwise>
 			<!-- 현재 페이지에서 1감소한 페이지 요청하는 링크 -->

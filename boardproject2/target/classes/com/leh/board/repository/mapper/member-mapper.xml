@@ -4,8 +4,8 @@
  
 <mapper namespace="member"> 
 	<insert id="save" parameterType="member">
-		insert into member_table (m_id, m_password, m_name, m_email, m_phone)
-			value(#{m_id},#{m_password},#{m_name},#{m_email},#{m_phone})
+		insert into member_table (m_number,m_id, m_password, m_name, m_email, m_phone)
+			value(#{m_number},#{m_id},#{m_password},#{m_name},#{m_email},#{m_phone})
 	</insert>
 	
 	<select id="login" resultType="member">
@@ -39,4 +39,7 @@
 	<delete id="delete" parameterType="long">
  		delete from member_table where m_number=#{m_number}
  	</delete>
+ 	<update id="update" parameterType="long">
+ 		update member_table set m_password=#{m_password} where m_number=#{m_number}	
+ 	</update>
 </mapper>

@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-	<h4>글이 저장되었습니다</h4><br><br>
+	<h2>글이 저장되었습니다</h2><br><br>
 	<a href="/board/insert"><button>더 쓰기</button></a>
 	<a href="/member/mainindex"><button>메인화면</button></a>
 	<a href="/board/findAllPage?page=${page}"><button>목록으로 가기</button></a>

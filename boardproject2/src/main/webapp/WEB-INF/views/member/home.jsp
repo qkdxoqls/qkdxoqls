@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>Home</title>
 	<link href="C:\Users\master\Desktop\다운로드.ico" rel="shortcut icon" type="image/x-icon">
+	<title>Home</title>
 <script type="text/javascript">
 function printClock() {
     
@@ -39,10 +39,9 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
 
 </script>
 <style type="text/css">
-
-	@font-face {
-    font-family: 'HSYuji-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+@font-face {
+    font-family: 'CookieRunOTF-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -69,7 +68,7 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
 </style>
 </head>
 <body>
-<h1 id="h1" style="font-family: 'HSYuji-Regular';" font-size="79">
+<h1 id="h1" style="font-family: 'CookieRunOTF-Bold';" font-size="79">
 	Board  
 </h1>
 <div id="btn">

@@ -24,6 +24,4 @@ public interface boardService {
 
 	public void delete(long b_number);
 
-	public List<boardDTO> search(String searchtype, String keyword);
-
 }

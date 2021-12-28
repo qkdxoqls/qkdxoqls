@@ -16,6 +16,7 @@ import com.leh.board.dto.PageDTO;
 import com.leh.board.dto.boardDTO;
 import com.leh.board.service.boardService;
 
+
 @Controller
 @RequestMapping(value="/board/*")
 public class boardController {
@@ -23,11 +24,13 @@ public class boardController {
 	@Autowired
 	private boardService bs;
 	
+	
 	@RequestMapping(value="insert", method=RequestMethod.GET)
 	public String insert() {
 		System.out.println("1");
 		return "board/insert";
 	}
+	
 	
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	public String insertForm(@ModelAttribute boardDTO board) throws IllegalStateException, IOException {
@@ -87,11 +90,5 @@ public class boardController {
 		return "board/findAll";
 	}
 	
-	@RequestMapping(value="search" , method=RequestMethod.GET)
-	public String search(@RequestParam("searchtype") String searchtype, @RequestParam("keyword") String keyword, Model model) {
-		List<boardDTO> boardlist = bs.search(searchtype, keyword);
-		model.addAttribute("boardList", boardlist);
-		return "board/findAll";
-	}
 
 }

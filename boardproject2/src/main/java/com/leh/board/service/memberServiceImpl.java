@@ -88,7 +88,7 @@ public class memberServiceImpl implements memberService{
 		pagingParam.put("start", pagingStart);
 		pagingParam.put("limit", PAGE_LIMIT);
 		List<memberDTO> pagingList = mr.pagingList(pagingStart);
-		List<memberDTO> pagingList1 = mr.pagingList1(pagingParam);
+//		List<memberDTO> pagingList1 = mr.pagingList1(pagingParam);
 		for(memberDTO m: pagingList) {
 		System.out.println(m.toString());
 		}
@@ -120,6 +120,14 @@ public class memberServiceImpl implements memberService{
 		// TODO Auto-generated method stub
 		mr.delete(m_number);
 	}
+
+	@Override
+	public void update(memberDTO member) {
+		// TODO Auto-generated method stub
+		mr.update(member);
+	}
+
+	
 	
 
 

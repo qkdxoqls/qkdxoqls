@@ -67,7 +67,7 @@ public class boardServiceImpl implements boardService{
 		br.update(board);
 	}
 	
-	private static final int PAGE_LIMIT = 3; // ���������� ������ �� ���� 
+	private static final int PAGE_LIMIT = 5; // ���������� ������ �� ���� 
 	private static final int BLOCK_LIMIT = 3; // ��ȭ�鿡 ������ ������ ����
 
 	@Override
@@ -111,21 +111,5 @@ public class boardServiceImpl implements boardService{
 		br.delete(b_number);
 	}
 
-	@Override
-	public List<boardDTO> search(String searchtype, String keyword) {
-		Map<String, String> searchParam = new HashMap<String, String>();
-		searchParam.put("type", searchtype);
-		searchParam.put("word", keyword);
-		List<boardDTO> boardList = br.search(searchParam);
-		for(boardDTO b: boardList) {
-			System.out.println(b.toString());
-		}
-		
-		return boardList;
-	}
-
-	
-	
-	
 
 }

@@ -23,5 +23,7 @@ public interface memberService {
 	public com.leh.board.dto.PageDTO paging(int page);
 
 	public void delete(long m_number);
+
+	public void update(memberDTO member);
 	
 }

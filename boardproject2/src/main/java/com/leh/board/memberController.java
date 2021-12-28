@@ -45,6 +45,12 @@ public class memberController {
 		return "member/login";
 	}
 	
+	@RequestMapping(value="mypage", method=RequestMethod.GET)
+	public String mypage() {
+		System.out.println("mypage");
+		return "member/mypage";
+	}
+	
 	@RequestMapping(value="login", method=RequestMethod.POST) 
 	public String loginForm(@ModelAttribute memberDTO member) {
 		String resultPage = ms.login(member);
@@ -104,6 +110,20 @@ public class memberController {
 		ms.delete(m_number);
 		System.out.println("삭제되었음");
 		return "redirect:/member/paging?page=";
+	}
+	
+	@RequestMapping(value="update", method=RequestMethod.GET)
+	public String updateForm(@RequestParam("m_number") long m_number, Model model, @RequestParam(value="page", required=false, defaultValue="1")int page) {
+		memberDTO member = ms.findById(m_number);
+		model.addAttribute("member", member);
+		model.addAttribute("page", page);
+		return "member/update";
+	}
+	@RequestMapping(value="update", method=RequestMethod.POST)
+	public String update(@ModelAttribute memberDTO member, @RequestParam("m_number") long m_number, Model model, @RequestParam(value="page", required=false, defaultValue="1")int page) {
+		ms.update(member);
+		System.out.println("수정함");
+		return "redirect:/member/mypage?m_number="+member.getM_number() + "&page=" + page;
 	}
 	
 	

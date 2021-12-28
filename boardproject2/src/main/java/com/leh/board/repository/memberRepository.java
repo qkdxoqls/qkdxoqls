@@ -65,4 +65,10 @@ public class memberRepository {
 		sql.delete("member.delete", m_number);
 	}
 
+	public void update(memberDTO member) {
+		// TODO Auto-generated method stub
+		sql.update("member.update", member);
+	}
+
+
 }

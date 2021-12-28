@@ -6,6 +6,7 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh시mm분ss초");
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,17 +70,20 @@ function addZeros(num, digit) { // 자릿수 맞춰주기
 				접속시간 : <%= sf.format(nowTime) %><br>
 				<br>
 				<a href="logout"><button>로그아웃</button></a>
-				<a href="paging?page=${page}"><button>회원 목록 보기</button></a>
+				<c:if test="${sessionScope.loginId eq 'admin' }">
+					<a href="paging?page=${page}"><button>회원 목록 보기</button></a>
+				</c:if>
+				<a href="mypage"><button>마이페이지</button></a>
 				<a href="/board/findAllPage?page=${page}"><button>글 목록 보기</button></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<body onload="printClock()">
-				<div id="clock" style=" align:center; solid #000000; width:600px; height:250px; line-height:250px; color:#666;font-size:100px; text-align:center;" id="clock">
+					<div id="clock" style=" align:center; solid #000000; width:600px; height:250px; line-height:250px; color:#666;font-size:100px; text-align:center;" id="clock">
+				
 				</div>	
 			</td>
-		</tr>
 		</tr>
 	</table>
 </body>

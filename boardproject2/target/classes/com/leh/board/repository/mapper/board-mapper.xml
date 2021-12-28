@@ -21,7 +21,7 @@
  		update board set b_title=#{b_title}, b_contents=#{b_contents} where b_number=#{b_number}
  	</update>
  	<select id="pagingList" parameterType="int" resultType="board">
-		select * from board order by b_number desc limit #{pagingStart}, 3
+		select * from board order by b_number desc limit #{pagingStart}, 5
 	</select>
 	
 	<select id="pagingList1" parameterType="java.util.HashMap" resultType="board">
@@ -33,7 +33,4 @@
  	<delete id="delete" parameterType="long">
  		delete from board where b_number=#{b_number}
  	</delete>
- 	<select id="search" parameterType="java.util.HashMap" resultType="board">
-		select * from board where ${type} like concat('%', #{word}, '%')	
-	</select> 
 </mapper>
